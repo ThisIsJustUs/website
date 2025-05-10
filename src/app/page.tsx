@@ -8,7 +8,7 @@ import { SocialLinks } from "@/app/_components/social-links";
 export default async function Home() {
   return (
     <HydrateClient>
-      <main className="flex min-h-screen flex-col">
+      <main className="flex min-h-screen flex-col justify-center items-center">
         <div className="mx-auto w-full max-w-3xl px-4 py-12 md:px-8">
           <SocialLinks />
         </div>
