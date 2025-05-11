@@ -13,8 +13,11 @@ export async function Posts() {
 
   return (
     <div className="mt-6 w-full">
-      {posts.map((post: Post) => (
-        <div key={post.slug?.toString()} className="py-4">
+      {posts.map((post: Post, index: number) => (
+        <div
+          key={post.slug?.toString()}
+          className={`py-4 ${index !== posts.length - 1 ? "border-b border-gray-200" : ""}`}
+        >
           <WritingListItem
             title={post.title ?? ""}
             date={post.publishedAt ? new Date(post.publishedAt) : new Date()}

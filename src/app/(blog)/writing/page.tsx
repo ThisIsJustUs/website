@@ -8,7 +8,10 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Blog() {
   return (
-    <main className="flex flex-col items-center justify-center">
+    <main className="">
+      <div className="px-4 pt-8">
+        <h1 className="text-xl font-bold">Writing</h1>
+      </div>
       <Posts />
     </main>
   );
