@@ -8,9 +8,15 @@ interface WritingListItemProps {
   title: string;
   date: Date;
   slug: string;
+  excerpt?: string;
 }
 
-export function WritingListItem({ title, date, slug }: WritingListItemProps) {
+export function WritingListItem({
+  title,
+  date,
+  slug,
+  excerpt,
+}: WritingListItemProps) {
   const pathname = usePathname();
   const isActive = pathname === `/writing/${slug}`;
 
@@ -37,6 +43,13 @@ export function WritingListItem({ title, date, slug }: WritingListItemProps) {
         >
           {format(date, "MMMM d, yyyy")}
         </p>
+        {excerpt && (
+          <p
+            className={`text-xs line-clamp-2 ${isActive ? "text-slate-400" : "text-slate-500"}`}
+          >
+            {excerpt}
+          </p>
+        )}
       </div>
     </Link>
   );

@@ -20,6 +20,7 @@ export async function Posts() {
               title={post.title ?? ""}
               date={post.publishedAt ? new Date(post.publishedAt) : new Date()}
               slug={post.slug?.toString() ?? ""}
+              excerpt={post.excerpt ?? ""}
             />
           </div>
         ))}

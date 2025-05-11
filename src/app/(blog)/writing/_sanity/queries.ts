@@ -1,6 +1,6 @@
-import { defineQuery } from 'next-sanity';
+import { defineQuery } from "next-sanity";
 
-import { sanityFetch } from './client';
+import { sanityFetch } from "./client";
 
 const TOTAL_POSTS_QUERY = defineQuery(/* groq */ `count(*[
   _type == "post"
@@ -32,7 +32,11 @@ const POSTS_QUERY = defineQuery(/* groq */ `*[
   },
 }`);
 
-export async function getPosts(startIndex: number, endIndex: number, category?: string) {
+export async function getPosts(
+  startIndex: number,
+  endIndex: number,
+  category?: string,
+) {
   return await sanityFetch({
     query: POSTS_QUERY,
     params: {
