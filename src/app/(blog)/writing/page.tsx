@@ -1,18 +1,10 @@
-import { notFound } from "next/navigation";
-
 import { Container } from "./_components/container";
 import { Heading, Lead, Subheading } from "./_components/text";
 import { Posts } from "./_components/posts";
-import { getPost, getPosts } from "./_sanity/queries";
-import { BlogContent } from "./_components/blog-content";
 
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Blog() {
-  // Get the first post to display
-  const posts = await getPosts(0, 1);
-  const post = posts[0]?.slug ? await getPost(posts[0].slug) : null;
-
   return (
     <main className="h-screen">
       <div className="flex min-h-full flex-row">
@@ -22,10 +14,15 @@ export default async function Blog() {
           </div>
           <Posts />
         </div>
-        {/* Only show this on desktop  */}
-        <div className="hidden min-h-full w-full justify-center overflow-y-auto md:flex">
-          <BlogContent post={post} />
-        </div>
+        {/* Dot pattern background */}
+        <div
+          className="hidden min-h-full w-full bg-white md:block"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)",
+            backgroundSize: "24px 24px",
+          }}
+        />
       </div>
     </main>
   );

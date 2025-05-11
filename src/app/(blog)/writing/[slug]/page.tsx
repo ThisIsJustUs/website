@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 import { getPost } from "@/app/(blog)/writing/_sanity/queries";
 import { BlogContent } from "../_components/blog-content";
 import { BackButton } from "../_components/back-button";
+import { Posts } from "../_components/posts";
 
-export async function generateMetadata(
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  { params }: { params: any }, // 👈  now always OK
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPost(params.slug);
 
   if (!post) {
@@ -21,8 +21,7 @@ export async function generateMetadata(
   };
 }
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export default async function Post({ params }: { params: any }) {
+export default async function Post({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
 
   if (!post) {
@@ -30,9 +29,25 @@ export default async function Post({ params }: { params: any }) {
   }
 
   return (
-    <main className="overflow-hidden">
-      <BackButton />
-      <BlogContent post={post} />
+    <main className="h-screen">
+      {/* Mobile View */}
+      <div className="md:hidden">
+        <BackButton />
+        <BlogContent post={post} />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden min-h-full flex-row md:flex">
+        <div className="min-h-full w-lg border-gray-200 border-r bg-slate-50">
+          <div className="px-4 pt-8">
+            <h1 className="font-bold text-xl">Writing</h1>
+          </div>
+          <Posts />
+        </div>
+        <div className="min-h-full w-full justify-center overflow-y-auto bg-white">
+          <BlogContent post={post} />
+        </div>
+      </div>
     </main>
   );
 }
