@@ -9,7 +9,7 @@
 	"formatter": { 
 		"enabled": true,
 		"indentStyle": "space",
-    	"ignore": [".next", "dist", "test"]
+		"ignore": [".next", "dist", "test"]
 	},
 	"organizeImports": { "enabled": true },
 	"linter": {
@@ -24,7 +24,10 @@
 					}
 				}
 			},
-			"recommended": true
+			"recommended": true,
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			}
 		},
 		"ignore": [
 			"src/components/ui/sidebar.tsx"

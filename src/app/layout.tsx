@@ -2,8 +2,7 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "./_components/app-sidebar";
+import { Analytics } from "@vercel/analytics/next";
 
 import { TRPCReactProvider } from "@/trpc/react";
 
@@ -28,6 +27,7 @@ export default function RootLayout({
           {/* <SidebarProvider> */}
           {/* <AppSidebar /> */}
           <main>{children}</main>
+          <Analytics />
           {/* </SidebarProvider> */}
         </TRPCReactProvider>
       </body>
