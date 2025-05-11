@@ -13,7 +13,7 @@ export async function Posts() {
   }
 
   return (
-    <div className="w-full md:h-full md:w-lg">
+    <div className="w-full md:w-lg">
       <div className="mt-6 w-full">
         {posts.map((post: Post, index: number) => (
           <div
