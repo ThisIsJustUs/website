@@ -13,12 +13,9 @@ export async function Posts() {
 
   return (
     <div className="w-full md:w-lg">
-      <div className="mt-6 w-full">
-        {posts.map((post: Post, index: number) => (
-          <div
-            key={post.slug?.toString()}
-            className={`py-4 ${index !== posts.length - 1 ? "border-gray-200 border-b" : ""}`}
-          >
+      <div className="mt-6 w-full px-4 py-2">
+        {posts.map((post: Post) => (
+          <div key={post.slug?.toString()} className="py-1">
             <WritingListItem
               title={post.title ?? ""}
               date={post.publishedAt ? new Date(post.publishedAt) : new Date()}

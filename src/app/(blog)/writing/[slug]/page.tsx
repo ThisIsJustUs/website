@@ -37,14 +37,19 @@ export default async function Post({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Desktop View */}
-      <div className="hidden min-h-full flex-row md:flex">
-        <div className="min-h-full w-lg border-gray-200 border-r bg-slate-50">
-          <div className="px-4 pt-8">
+      <div className="hidden h-full flex-row md:flex">
+        {/* Posts List - Fixed width, scrollable */}
+        <div className="h-full w-lg border-gray-200 border-r bg-slate-50">
+          <div className="sticky top-0 z-10 bg-slate-50 px-4 pt-8">
             <h1 className="font-bold text-xl">Writing</h1>
           </div>
-          <Posts />
+          <div className="h-[calc(100%-4rem)] overflow-y-auto">
+            <Posts />
+          </div>
         </div>
-        <div className="min-h-full w-full justify-center overflow-y-auto bg-white">
+
+        {/* Blog Content - Flexible width, scrollable */}
+        <div className="h-full flex-1 overflow-y-auto bg-white">
           <BlogContent post={post} />
         </div>
       </div>

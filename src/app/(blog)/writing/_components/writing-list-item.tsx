@@ -2,6 +2,7 @@
 
 import { format } from "date-fns";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface WritingListItemProps {
   title: string;
@@ -10,13 +11,30 @@ interface WritingListItemProps {
 }
 
 export function WritingListItem({ title, date, slug }: WritingListItemProps) {
+  const pathname = usePathname();
+  const isActive = pathname === `/writing/${slug}`;
+
   return (
-    <Link href={`/writing/${slug}`} className="group block">
-      <div className="space-y-1 px-4">
-        <h2 className="font-normal text-slate-800 transition-colors group-hover:text-primary">
+    <Link href={`/writing/${slug}`} className="group block mb-1">
+      <div
+        className={`py-4 px-6 rounded-xl space-y-1 transition-colors ${
+          isActive ? "bg-black" : "hover:bg-slate-200"
+        }`}
+      >
+        <h2
+          className={`transition-colors ${
+            isActive
+              ? "text-white font-semibold"
+              : "text-slate-800 group-hover:text-primary font-normal"
+          }`}
+        >
           {title}
         </h2>
-        <p className="font-light text-slate-400 text-sm">
+        <p
+          className={`text-sm ${
+            isActive ? "text-slate-300" : "text-slate-400 font-light"
+          }`}
+        >
           {format(date, "MMMM d, yyyy")}
         </p>
       </div>
