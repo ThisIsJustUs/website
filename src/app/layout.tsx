@@ -25,10 +25,10 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         <TRPCReactProvider>
-          <SidebarProvider>
-            <AppSidebar />
-            <main>{children}</main>
-          </SidebarProvider>
+          {/* <SidebarProvider> */}
+          {/* <AppSidebar /> */}
+          <main>{children}</main>
+          {/* </SidebarProvider> */}
         </TRPCReactProvider>
       </body>
     </html>
