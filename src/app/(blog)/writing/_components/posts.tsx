@@ -18,7 +18,7 @@ export async function Posts() {
         {posts.map((post: Post, index: number) => (
           <div
             key={post.slug?.toString()}
-            className={`py-4 ${index !== posts.length - 1 ? "border-b border-gray-200" : ""}`}
+            className={`py-4 ${index !== posts.length - 1 ? "border-gray-200 border-b" : ""}`}
           >
             <WritingListItem
               title={post.title ?? ""}
