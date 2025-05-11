@@ -25,6 +25,9 @@
 				}
 			},
 			"recommended": true
-		}
+		},
+		"ignore": [
+			"src/components/ui/sidebar.tsx"
+		]
 	}
 }
