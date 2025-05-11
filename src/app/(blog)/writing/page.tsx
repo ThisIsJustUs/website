@@ -22,7 +22,8 @@ export default async function Blog() {
           </div>
           <Posts />
         </div>
-        <div className="flex min-h-full w-full justify-center overflow-y-auto">
+        {/* Only show this on desktop  */}
+        <div className="hidden min-h-full w-full justify-center overflow-y-auto md:flex">
           <BlogContent post={post} />
         </div>
       </div>
