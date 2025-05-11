@@ -13,7 +13,7 @@ export async function Posts() {
   }
 
   return (
-    <ScrollArea className="w-lg">
+    <ScrollArea className="h-full w-lg">
       <div className="mt-6 w-full">
         {posts.map((post: Post, index: number) => (
           <div
