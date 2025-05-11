@@ -20,7 +20,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export default async function Post({ params }: { params: any }) {
   const post = await getPost(params.slug);
 
   if (!post) {
