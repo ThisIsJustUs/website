@@ -1,6 +1,5 @@
 "use server";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { getPosts } from "../_sanity/queries";
 import type { Post } from "../_sanity/types";
 import { WritingListItem } from "./writing-list-item";

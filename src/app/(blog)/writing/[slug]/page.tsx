@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { getPost } from "@/app/(blog)/writing/_sanity/queries";
 import { BlogContent } from "../_components/blog-content";
+import { BackButton } from "../_components/back-button";
 
 export async function generateMetadata(
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -30,6 +31,7 @@ export default async function Post({ params }: { params: any }) {
 
   return (
     <main className="overflow-hidden">
+      <BackButton />
       <BlogContent post={post} />
     </main>
   );

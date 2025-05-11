@@ -25,7 +25,7 @@ export function BlogContent({ post }: BlogContentProps) {
     <Container>
       <div className="text-gray-700">
         <div className="max-w-2xl xl:mx-auto">
-          <Subheading className="mt-16">
+          <Subheading className="mt-20">
             {post.publishedAt
               ? format(new Date(post.publishedAt), "MMMM M, yyyy")
               : ""}
