@@ -40,7 +40,7 @@ export default async function Post({ params }: { params: any }) {
         <div className="text-gray-700">
           <div className="max-w-2xl xl:mx-auto">
             <Subheading className="mt-16">
-              {format(post.publishedAt, "dddd, MMMM M, yyyy")}
+              {format(post.publishedAt, "MMMM M, yyyy")}
             </Subheading>
             <h1 className="text-pretty font-medium text-3xl text-gray-950 tracking-tighter data-[dark]:text-white">
               {post.title}
@@ -59,7 +59,7 @@ export default async function Post({ params }: { params: any }) {
                 components={{
                   block: {
                     normal: ({ children }) => (
-                      <p className="my-10 text-base/8 first:mt-0 last:mb-0">
+                      <p className="my-5 text-base/8 first:mt-0 last:mb-0">
                         {children}
                       </p>
                     ),
@@ -74,7 +74,7 @@ export default async function Post({ params }: { params: any }) {
                       </h3>
                     ),
                     blockquote: ({ children }) => (
-                      <blockquote className="my-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+                      <blockquote className="my-5 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
                         {children}
                       </blockquote>
                     ),
@@ -145,7 +145,7 @@ export default async function Post({ params }: { params: any }) {
                         <Link
                           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
                           href={value.href}
-                          className="font-medium text-gray-950 underline decoration-gray-400 underline-offset-4 data-[hover]:decoration-gray-600"
+                          className="text-blue-500 decoration-gray-400 data-[hover]:decoration-gray-600"
                         >
                           {children}
                         </Link>
