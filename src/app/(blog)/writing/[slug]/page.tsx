@@ -1,15 +1,21 @@
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 
 import { getPost } from "@/app/(blog)/writing/_sanity/queries";
 import { BlogContent } from "../_components/blog-content";
 import { BackButton } from "../_components/back-button";
 import { Posts } from "../_components/posts";
 
-export async function generateMetadata({
-  params,
-}: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getPost(params.slug);
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     return { title: "Post Not Found" };
@@ -21,8 +27,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug);
+export default async function Post({ params }: Props) {
+  const { slug } = await params;
+
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
