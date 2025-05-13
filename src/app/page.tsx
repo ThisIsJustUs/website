@@ -1,21 +1,14 @@
 "use server";
 
-import { HydrateClient } from "@/trpc/server";
-
 import { Resume } from "@/app/_components/resume";
-import { SocialLinks } from "@/app/_components/social-links";
 
 export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-center items-center">
-      <div className="mx-auto w-full max-w-3xl px-4 py-12 md:px-8">
-        <SocialLinks />
-      </div>
-
       <div className="mx-auto w-full max-w-3xl px-4 pb-10 md:px-8">
-        <h1 className="mb-8 text-center font-light text-4xl text-slate-800 tracking-tight">
+        {/* <h1 className="mb-8 text-center font-light text-4xl text-slate-800 tracking-tight">
           Justus Hebenstreit
-        </h1>
+        </h1> */}
         <div className="prose space-y-4 font-light text-slate-800">
           <p>
             Hey, I'm Justus. I'm a product manager, fintech fan, and weekend

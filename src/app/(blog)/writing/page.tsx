@@ -9,7 +9,7 @@ export default async function Blog() {
     <main className="h-screen">
       <div className="flex min-h-full flex-row">
         <div className="min-h-full w-lg border-gray-200 border-r bg-slate-50">
-          <div className="px-4 pt-8">
+          <div className="px-9 pt-8">
             <h1 className="font-bold text-xl">Writing</h1>
           </div>
           <Posts />
