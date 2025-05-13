@@ -48,7 +48,7 @@ const data = {
   projects: [
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/ThisIsJustUs",
       icon: <Image src={logoGithub} alt="GitHub" width={16} height={16} />,
     },
     {
@@ -58,7 +58,7 @@ const data = {
     },
     {
       name: "X",
-      url: "https://x.com/thisisjustus",
+      url: "https://x.com/ThisIsJustUs",
       icon: <Image src={logoTwitter} alt="X" width={16} height={16} />,
     },
   ],
