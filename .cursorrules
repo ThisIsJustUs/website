@@ -21,7 +21,7 @@ You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, 
 ## Code Style and Structure
 
 - We're using the the T3 Stack
-- We're using pnpm
+- We're using bun
 - Write concise, technical TypeScript code with accurate examples.
 - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
@@ -142,11 +142,11 @@ It uses Postgres, Supabase, Drizzle ORM, and tRPC.
 - Use enums for columns that have a limited set of possible values such as:
 
 ```ts
-import { pgEnum } from 'drizzle-orm/pg-core';
+import { pgEnum } from "drizzle-orm/pg-core";
 
-export const membershipEnum = pgEnum('membership', ['free', 'pro']);
+export const membershipEnum = pgEnum("membership", ["free", "pro"]);
 
-membership: membershipEnum('membership').notNull().default('free');
+membership: membershipEnum("membership").notNull().default("free");
 ```
 
 Example of a schema:
@@ -154,14 +154,16 @@ Example of a schema:
 `db/schema/todos-schema.ts`
 
 ```ts
-import { InferInsertModel, InferSelectModel } from 'drizzle-orm';
+import { InferInsertModel, InferSelectModel } from "drizzle-orm";
 
-const usersTable = pgTable('users', {
-  id: serial('id').primaryKey(),
-  name: text('name').notNull(),
-  verified: boolean('verified').notNull().default(false),
-  jsonb: jsonb('jsonb').$type<string[]>(),
-  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+const usersTable = pgTable("users", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  verified: boolean("verified").notNull().default(false),
+  jsonb: jsonb("jsonb").$type<string[]>(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });
 
 type SelectUser = typeof usersTable.$inferSelect;
@@ -174,14 +176,14 @@ type InsertUser2 = InferInsertModel<typeof usersTable>;
 And a more complex schema:
 
 ```ts
-import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
-export const chatsTable = pgTable('chats', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  userId: text('user_id').notNull(),
-  name: text('name').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at')
+export const chatsTable = pgTable("chats", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  userId: text("user_id").notNull(),
+  name: text("name").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
     .defaultNow()
     .notNull()
     .$onUpdate(() => new Date()),
@@ -192,21 +194,21 @@ export type SelectChat = typeof chatsTable.$inferSelect;
 ```
 
 ```ts
-import { pgEnum, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { pgEnum, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
-import { chatsTable } from './chats-schema';
+import { chatsTable } from "./chats-schema";
 
-export const roleEnum = pgEnum('role', ['assistant', 'user']);
+export const roleEnum = pgEnum("role", ["assistant", "user"]);
 
-export const messagesTable = pgTable('messages', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  chatId: uuid('chat_id')
-    .references(() => chatsTable.id, { onDelete: 'cascade' })
+export const messagesTable = pgTable("messages", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  chatId: uuid("chat_id")
+    .references(() => chatsTable.id, { onDelete: "cascade" })
     .notNull(),
-  content: text('content').notNull(),
-  role: roleEnum('role').notNull(),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at')
+  content: text("content").notNull(),
+  role: roleEnum("role").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
     .defaultNow()
     .notNull()
     .$onUpdate(() => new Date()),
@@ -223,7 +225,13 @@ Use the Query API over using general `db.select()` and create soft relations whe
 #### Query
 
 ```ts
-export const getAllCommentsByInsightId = async ({ db, input }: { db: typeof DrizzleClient; input: { id: number } }) => {
+export const getAllCommentsByInsightId = async ({
+  db,
+  input,
+}: {
+  db: typeof DrizzleClient;
+  input: { id: number };
+}) => {
   return db.query.comment.findMany({
     where: eq(comment.insightId, input.id),
   });
@@ -233,7 +241,10 @@ export const getAllCommentsByInsightId = async ({ db, input }: { db: typeof Driz
 #### Insert
 
 ```ts
-const createCommentSchema = z.object({ insightId: z.number(), content: z.any() });
+const createCommentSchema = z.object({
+  insightId: z.number(),
+  content: z.any(),
+});
 const updateCommentSchema = z.object({ id: z.number(), content: z.any() });
 
 type CreateComment = z.infer<typeof createCommentSchema>;
@@ -263,7 +274,13 @@ export const createComment = async ({
 #### Update
 
 ```ts
-export const updateCommentById = async ({ db, input }: { db: typeof DrizzleClient; input: UpdateComment }) => {
+export const updateCommentById = async ({
+  db,
+  input,
+}: {
+  db: typeof DrizzleClient;
+  input: UpdateComment;
+}) => {
   return db
     .update(comment)
     .set({
@@ -276,7 +293,13 @@ export const updateCommentById = async ({ db, input }: { db: typeof DrizzleClien
 #### Delete
 
 ```ts
-export const deleteCommentById = async ({ db, input }: { db: typeof DrizzleClient; input: { id: number } }) => {
+export const deleteCommentById = async ({
+  db,
+  input,
+}: {
+  db: typeof DrizzleClient;
+  input: { id: number };
+}) => {
   return db.delete(comment).where(eq(comment.id, input.id));
 };
 ```

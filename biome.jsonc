@@ -30,7 +30,8 @@
 			}
 		},
 		"ignore": [
-			"src/components/ui/sidebar.tsx"
+			"src/components/ui/sidebar.tsx",
+			"/magicui"
 		]
 	}
 }
