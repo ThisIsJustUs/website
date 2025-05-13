@@ -2,10 +2,9 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 
-import { TRPCReactProvider } from "@/trpc/react";
-import Dock from "./_components/dock";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: "Justus Hebenstreit",
@@ -24,14 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} overscroll-none`}>
       <body className="overscroll-none bg-slate-50">
-        <TRPCReactProvider>
-          {/* <SidebarProvider> */}
-          {/* <AppSidebar /> */}
-          <main>{children}</main>
-          <Analytics />
-          <Dock />
-          {/* </SidebarProvider> */}
-        </TRPCReactProvider>
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarInset>
+            <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+              {children}
+              <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+            </div>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
