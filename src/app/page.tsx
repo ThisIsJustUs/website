@@ -4,11 +4,8 @@ import { Resume } from "@/app/_components/resume";
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center">
+    <main className="flex min-h-screen flex-col items-center justify-center py-12 md:py-0">
       <div className="mx-auto w-full max-w-3xl px-4 pb-10 md:px-8">
-        {/* <h1 className="mb-8 text-center font-light text-4xl text-slate-800 tracking-tight">
-          Justus Hebenstreit
-        </h1> */}
         <div className="prose space-y-4 font-light text-slate-800">
           <p>
             Hey, I'm Justus. I'm a product manager, fintech fan, and weekend
