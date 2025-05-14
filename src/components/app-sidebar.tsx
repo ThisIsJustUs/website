@@ -26,7 +26,6 @@ const data = {
       title: "Home",
       url: "/",
       icon: Home,
-      isActive: true,
     },
     {
       title: "Writing",

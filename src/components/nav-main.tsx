@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 
 import {
@@ -20,6 +21,7 @@ export function NavMain({
     isActive?: boolean;
   }[];
 }) {
+  const pathname = usePathname();
   return (
     <SidebarGroup>
       <div className="p-2">
@@ -29,9 +31,9 @@ export function NavMain({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.title}>
-            <SidebarMenuButton asChild isActive={item.isActive}>
+            <SidebarMenuButton asChild isActive={pathname === item.url}>
               <a href={item.url}>
-                {item.icon && <item.icon className="mr-3" />}
+                {item.icon && <item.icon className="mr-3 text-slate-700" />}
                 <span>{item.title}</span>
               </a>
             </SidebarMenuButton>
