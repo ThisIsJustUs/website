@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import type { LucideIcon } from "lucide-react";
+import type * as React from "react";
 
 export function NavProjects({
   projects,
@@ -15,7 +15,7 @@ export function NavProjects({
   projects: {
     title: string;
     url: string;
-    icon?: LucideIcon;
+    icon?: React.ReactNode;
   }[];
 }) {
   return (
@@ -26,7 +26,7 @@ export function NavProjects({
           <SidebarMenuItem key={project.title}>
             <SidebarMenuButton asChild>
               <a href={project.url} target="_blank" rel="noopener noreferrer">
-                {project.icon && <project.icon className="mr-2" />}
+                {project.icon && <span className="mr-2">{project.icon}</span>}
                 <span>{project.title}</span>
               </a>
             </SidebarMenuButton>

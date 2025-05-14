@@ -12,6 +12,7 @@ import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
 import logoGithub from "@/images/logos/github.svg";
 import logoLinkedin from "@/images/logos/linkedin.svg";
 import logoTwitter from "@/images/logos/twitter.svg";
+import logoEllaa from "@/images/logos/ellaa-raw.svg";
 
 const data = {
   navMain: [
@@ -31,7 +32,7 @@ const data = {
     {
       title: "Ellaa",
       url: "https://ellaa.app",
-      icon: Folder,
+      icon: <Image src={logoEllaa} alt="Ellaa" width={16} height={16} />,
     },
   ],
   social: [
