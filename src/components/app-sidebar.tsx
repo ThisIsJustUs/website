@@ -1,11 +1,12 @@
 "use client";
 
-import { BookOpen, SquareTerminal } from "lucide-react";
+import { BookOpen, SquareTerminal, Folder } from "lucide-react";
 import Image from "next/image";
 import type * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
+import { NavSocial } from "@/components/nav-social";
 import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
 
 import logoGithub from "@/images/logos/github.svg";
@@ -27,6 +28,13 @@ const data = {
     },
   ],
   projects: [
+    {
+      title: "Ellaa",
+      url: "https://ellaa.app",
+      icon: Folder,
+    },
+  ],
+  social: [
     {
       name: "GitHub",
       url: "https://github.com/ThisIsJustUs",
@@ -51,6 +59,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
+        <NavSocial social={data.social} />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

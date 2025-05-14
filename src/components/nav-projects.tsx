@@ -1,51 +1,33 @@
 "use client";
 
 import {
-  Folder,
-  Forward,
-  MoreHorizontal,
-  Trash2,
-  type LucideIcon,
-} from "lucide-react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
+import type { LucideIcon } from "lucide-react";
 
 export function NavProjects({
   projects,
 }: {
   projects: {
-    name: string;
+    title: string;
     url: string;
-    icon: React.ReactNode;
+    icon?: LucideIcon;
   }[];
 }) {
-  const { isMobile } = useSidebar();
-
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Online</SidebarGroupLabel>
+    <SidebarGroup>
+      <SidebarGroupLabel>Projects</SidebarGroupLabel>
       <SidebarMenu>
-        {projects.map((item) => (
-          <SidebarMenuItem key={item.name}>
+        {projects.map((project) => (
+          <SidebarMenuItem key={project.title}>
             <SidebarMenuButton asChild>
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
-                {item.icon}
-                <span>{item.name}</span>
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                {project.icon && <project.icon className="mr-2" />}
+                <span>{project.title}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
