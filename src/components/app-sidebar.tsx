@@ -38,7 +38,7 @@ const data = {
       icon: <Image src={logoLinkedin} alt="LinkedIn" width={16} height={16} />,
     },
     {
-      name: "X",
+      name: "Twitter",
       url: "https://x.com/ThisIsJustUs",
       icon: <Image src={logoTwitter} alt="X" width={16} height={16} />,
     },
