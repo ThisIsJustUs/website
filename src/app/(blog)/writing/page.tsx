@@ -5,10 +5,10 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Blog() {
   return (
-    <main className="bg-slate-50">
+    <main className="bg-white md:bg-slate-50">
       <SidebarTrigger className="mt-4 ml-4 bg-slate-50 md:hidden" />
       <div className="flex min-h-screen flex-row">
-        <div className="min-h-full w-lg border-gray-200 border-r bg-slate-50">
+        <div className="min-h-full w-lg border-gray-200 border-r bg-white md:bg-slate-50">
           <div className="px-4 pt-8 md:px-9">
             <h1 className="font-bold text-xl">Writing</h1>
           </div>
