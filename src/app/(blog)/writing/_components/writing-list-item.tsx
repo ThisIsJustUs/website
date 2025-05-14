@@ -49,7 +49,7 @@ export function WritingListItem({
         </p>
         {excerpt && (
           <p
-            className={`line-clamp-2 text-xs ${isActive ? "text-slate-400" : "text-slate-500"}`}
+            className={`line-clamp-2 text-sm ${isActive ? "text-slate-400" : "text-slate-500"}`}
           >
             {excerpt}
           </p>

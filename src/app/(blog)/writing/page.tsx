@@ -1,13 +1,13 @@
-import { Container } from "./_components/container";
-import { Heading, Lead, Subheading } from "./_components/text";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Posts } from "./_components/posts";
 
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Blog() {
   return (
-    <main className="h-screen">
-      <div className="flex min-h-full flex-row">
+    <main className="bg-slate-50">
+      <SidebarTrigger className="mt-4 ml-4 bg-slate-50" />
+      <div className="flex min-h-screen flex-row">
         <div className="min-h-full w-lg border-gray-200 border-r bg-slate-50">
           <div className="px-9 pt-8">
             <h1 className="font-bold text-xl">Writing</h1>
