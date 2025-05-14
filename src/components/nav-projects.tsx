@@ -26,7 +26,7 @@ export function NavProjects({
           <SidebarMenuItem key={project.title}>
             <SidebarMenuButton asChild>
               <a href={project.url} target="_blank" rel="noopener noreferrer">
-                {project.icon && <span className="mr-2">{project.icon}</span>}
+                {project.icon && <span className="mr-3">{project.icon}</span>}
                 <span>{project.title}</span>
               </a>
             </SidebarMenuButton>

@@ -1,6 +1,12 @@
 "use client";
 
-import { BookOpen, SquareTerminal, Folder } from "lucide-react";
+import {
+  BookOpen,
+  SquareTerminal,
+  Folder,
+  Home,
+  BookMarked,
+} from "lucide-react";
 import Image from "next/image";
 import type * as React from "react";
 
@@ -19,13 +25,13 @@ const data = {
     {
       title: "Home",
       url: "/",
-      icon: SquareTerminal,
+      icon: Home,
       isActive: true,
     },
     {
       title: "Writing",
       url: "/writing",
-      icon: BookOpen,
+      icon: BookMarked,
     },
   ],
   projects: [
@@ -57,7 +63,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarContent>
+      <SidebarContent className="px-1">
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
         <NavSocial social={data.social} />
