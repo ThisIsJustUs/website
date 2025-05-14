@@ -1,35 +1,16 @@
 "use client";
 
-import * as React from "react";
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react";
+import { BookOpen, SquareTerminal } from "lucide-react";
 import Image from "next/image";
+import type * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
 
-import logoTwitter from "@/images/logos/twitter.svg";
-import logoLinkedin from "@/images/logos/linkedin.svg";
 import logoGithub from "@/images/logos/github.svg";
+import logoLinkedin from "@/images/logos/linkedin.svg";
+import logoTwitter from "@/images/logos/twitter.svg";
 
 const data = {
   navMain: [
