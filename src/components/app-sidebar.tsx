@@ -62,7 +62,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarContent className="px-1">
+      <SidebarContent className="bg-white md:bg-slate-50 px-1">
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
         <NavSocial social={data.social} />
