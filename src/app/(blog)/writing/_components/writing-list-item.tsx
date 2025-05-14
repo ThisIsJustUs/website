@@ -27,7 +27,7 @@ export function WritingListItem({
       prefetch={true}
     >
       <div
-        className={`space-y-1 rounded-xl px-6 py-4 transition-colors ${
+        className={`space-y-1 rounded-xl px-4 py-4 transition-colors md:px-6 ${
           isActive ? "bg-black" : "hover:bg-slate-200"
         }`}
       >

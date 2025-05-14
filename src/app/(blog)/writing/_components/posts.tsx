@@ -13,7 +13,7 @@ export async function Posts() {
 
   return (
     <div className="w-full md:w-lg">
-      <div className="mt-6 w-full px-1 md:px-0 py-2">
+      <div className="mt-6 w-full px-1 py-2 md:px-4">
         {posts.map((post: Post) => (
           <div key={post.slug?.toString()} className="py-1">
             <WritingListItem

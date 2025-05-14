@@ -6,7 +6,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 export default async function Home() {
   return (
     <>
-      <SidebarTrigger className="mt-4 ml-4" />
+      <SidebarTrigger className="mt-4 ml-4 md:hidden" />
       <main className="flex min-h-screen flex-col items-center justify-center py-12 md:py-0">
         <div className="mx-auto w-full max-w-3xl px-4 pb-10 md:px-8">
           <div className="prose space-y-4 font-light text-slate-800">
