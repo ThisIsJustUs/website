@@ -32,8 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="overscroll-none bg-slate-50 dark:bg-neutral-900">
-        {/* <ThemeProvider attribute="class" defaultTheme="light" enableSystem> */}
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
