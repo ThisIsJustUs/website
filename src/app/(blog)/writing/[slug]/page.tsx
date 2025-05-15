@@ -47,9 +47,11 @@ export default async function Post({ params }: Props) {
       {/* Desktop View */}
       <div className="hidden h-full flex-row md:flex">
         {/* Posts List - Fixed width, scrollable */}
-        <div className="h-full w-lg border-gray-200 border-r bg-slate-50">
-          <div className="sticky top-0 z-10 bg-slate-50 px-9 pt-8">
-            <h1 className="font-bold text-xl">Writing</h1>
+        <div className="h-full w-lg border-gray-200 border-r bg-slate-50 dark:border-gray-800 dark:bg-slate-900">
+          <div className="sticky top-0 z-10 bg-slate-50 px-9 pt-8 dark:bg-slate-900">
+            <h1 className="font-bold text-slate-900 text-xl dark:text-slate-100">
+              Writing
+            </h1>
           </div>
           <div className="h-[calc(100%-4rem)] overflow-y-auto">
             <Posts />
@@ -57,7 +59,7 @@ export default async function Post({ params }: Props) {
         </div>
 
         {/* Blog Content - Flexible width, scrollable */}
-        <div className="h-full flex-1 overflow-y-auto bg-white">
+        <div className="h-full flex-1 overflow-y-auto bg-white dark:bg-slate-950">
           <BlogContent post={post} />
         </div>
       </div>
