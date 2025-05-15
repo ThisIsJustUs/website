@@ -29,7 +29,7 @@ export function WritingListItem({
       <div
         className={`space-y-1 rounded-xl px-4 py-4 transition-colors md:px-6 ${
           isActive
-            ? "bg-black dark:bg-slate-900"
+            ? "bg-black dark:bg-slate-800"
             : "hover:bg-slate-200 dark:hover:bg-slate-800"
         }`}
       >

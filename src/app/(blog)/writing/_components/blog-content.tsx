@@ -30,7 +30,7 @@ export function BlogContent({ post }: BlogContentProps) {
               ? format(new Date(post.publishedAt), "MMMM M, yyyy")
               : ""}
           </Subheading>
-          <h1 className="text-pretty font-medium text-3xl text-gray-950 dark:text-white tracking-tighter">
+          <h1 className="text-pretty font-medium text-3xl text-gray-950 dark:text-slate-100 tracking-tighter">
             {post.title}
           </h1>
           {post.mainImage && (
@@ -52,17 +52,17 @@ export function BlogContent({ post }: BlogContentProps) {
                     </p>
                   ),
                   h2: ({ children }) => (
-                    <h2 className="mt-12 mb-10 font-medium text-2xl/8 text-gray-950 dark:text-white tracking-tight first:mt-0 last:mb-0">
+                    <h2 className="mt-12 mb-10 font-medium text-2xl/8 text-gray-950 dark:text-slate-100 tracking-tight first:mt-0 last:mb-0">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }) => (
-                    <h3 className="mt-12 mb-10 font-medium text-gray-950 dark:text-white text-xl/8 tracking-tight first:mt-0 last:mb-0">
+                    <h3 className="mt-12 mb-10 font-medium text-gray-950 dark:text-slate-100 text-xl/8 tracking-tight first:mt-0 last:mb-0">
                       {children}
                     </h3>
                   ),
                   blockquote: ({ children }) => (
-                    <blockquote className="my-5 border-l-2 border-l-gray-300 dark:border-l-gray-700 pl-6 text-base/8 text-gray-950 dark:text-white first:mt-0 last:mb-0">
+                    <blockquote className="my-5 border-l-2 border-l-gray-300 dark:border-l-gray-700 pl-6 text-base/8 text-gray-950 dark:text-slate-100 first:mt-0 last:mb-0">
                       {children}
                     </blockquote>
                   ),
@@ -115,14 +115,14 @@ export function BlogContent({ post }: BlogContentProps) {
                 },
                 marks: {
                   strong: ({ children }) => (
-                    <strong className="font-semibold text-gray-950 dark:text-white">
+                    <strong className="font-semibold text-gray-950 dark:text-slate-100">
                       {children}
                     </strong>
                   ),
                   code: ({ children }) => (
                     <>
                       <span aria-hidden>`</span>
-                      <code className="font-semibold text-[15px]/8 text-gray-950 dark:text-white">
+                      <code className="font-semibold text-[15px]/8 text-gray-950 dark:text-slate-100">
                         {children}
                       </code>
                       <span aria-hidden>`</span>
