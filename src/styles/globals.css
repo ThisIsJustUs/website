@@ -123,3 +123,10 @@
     @apply bg-background text-foreground;
 	}
 }
+
+[data-dot-bg] {
+  --dot-color: #e2e8f0;
+}
+.dark [data-dot-bg] {
+  --dot-color: #1e293b;
+}

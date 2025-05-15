@@ -25,7 +25,9 @@ export function NavMain({
   return (
     <SidebarGroup>
       <div className="p-2">
-        <h2 className="font-medium">Justus Hebenstreit</h2>
+        <h2 className="font-medium text-slate-700 dark:text-slate-200">
+          Justus Hebenstreit
+        </h2>
       </div>
       <SidebarGroupLabel>Me</SidebarGroupLabel>
       <SidebarMenu>
@@ -33,7 +35,9 @@ export function NavMain({
           <SidebarMenuItem key={item.title}>
             <SidebarMenuButton asChild isActive={pathname === item.url}>
               <a href={item.url}>
-                {item.icon && <item.icon className="mr-3 text-slate-700" />}
+                {item.icon && (
+                  <item.icon className="mr-3 text-slate-700 dark:text-slate-200" />
+                )}
                 <span>{item.title}</span>
               </a>
             </SidebarMenuButton>

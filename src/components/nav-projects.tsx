@@ -27,7 +27,9 @@ export function NavProjects({
             <SidebarMenuButton asChild>
               <a href={project.url} target="_blank" rel="noopener noreferrer">
                 {project.icon && <span className="mr-3">{project.icon}</span>}
-                <span>{project.title}</span>
+                <span className="text-slate-700 dark:text-slate-200">
+                  {project.title}
+                </span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

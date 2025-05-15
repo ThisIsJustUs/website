@@ -29,7 +29,9 @@ export function NavSocial({
             <SidebarMenuButton asChild>
               <a href={item.url} target="_blank" rel="noopener noreferrer">
                 {item.icon && <span className="mr-3">{item.icon}</span>}
-                <span>{item.name}</span>
+                <span className="text-slate-700 dark:text-slate-200">
+                  {item.name}
+                </span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
