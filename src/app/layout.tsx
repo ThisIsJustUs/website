@@ -31,9 +31,9 @@ export default function RootLayout({
       className={`${geist.variable} overscroll-none`}
       suppressHydrationWarning
     >
-      <body className="overscroll-none bg-slate-50 dark:bg-slate-900">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {/* <ThemeProvider attribute="class" defaultTheme="dark" enableSystem> */}
+      <body className="overscroll-none bg-slate-50 dark:bg-neutral-900">
+        {/* <ThemeProvider attribute="class" defaultTheme="light" enableSystem> */}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>

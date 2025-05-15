@@ -29,15 +29,15 @@ export function WritingListItem({
       <div
         className={`space-y-1 rounded-xl px-4 py-4 transition-colors md:px-6 ${
           isActive
-            ? "bg-black dark:bg-slate-800"
+            ? "bg-black dark:bg-neutral-800"
             : "hover:bg-slate-200 dark:hover:bg-slate-800"
         }`}
       >
         <h2
           className={`transition-colors ${
             isActive
-              ? "font-semibold text-white dark:text-slate-100"
-              : "font-normal text-slate-800 group-hover:text-primary dark:text-slate-300"
+              ? "font-semibold text-white dark:text-neutral-100"
+              : "font-normal text-slate-800 group-hover:text-primary dark:text-neutral-300"
           }`}
         >
           {title}
@@ -46,7 +46,7 @@ export function WritingListItem({
           className={`text-sm ${
             isActive
               ? "text-slate-300 dark:text-slate-400"
-              : "font-light text-slate-400 dark:text-slate-500"
+              : "font-light text-slate-400 dark:text-neutral-500"
           }`}
         >
           {format(date, "MMMM d, yyyy")}
@@ -55,7 +55,7 @@ export function WritingListItem({
           <p
             className={`line-clamp-2 text-sm ${
               isActive
-                ? "text-slate-400 dark:text-slate-500"
+                ? "text-slate-400 dark:text-neutral-500"
                 : "text-slate-500 dark:text-slate-400"
             }`}
           >
