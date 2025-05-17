@@ -1,17 +1,19 @@
 "use client";
 
-import { BookMarked, Home, Monitor, Moon, Sun } from "lucide-react";
+import { BookMarked, Home } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import type * as React from "react";
 import { useEffect, useState } from "react";
+import { useHotkeys } from "react-hotkeys-hook";
+import { useRouter } from "next/navigation";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
+import { ModeToggle } from "@/components/mode-toggle";
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavSocial } from "@/components/nav-social";
-import { Button } from "@/components/ui/button";
 import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
-import { ModeToggle } from "@/components/mode-toggle";
 
 import logoEllaa from "@/images/logos/ellaa-raw.svg";
 import logoGithubDark from "@/images/logos/github-dark.svg";
@@ -22,10 +24,26 @@ import logoTwitter from "@/images/logos/twitter.svg";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useHotkeys(
+    "h",
+    () => {
+      router.push("/");
+    },
+    { enableOnFormTags: true },
+  );
+  useHotkeys(
+    "w",
+    () => {
+      router.push("/writing");
+    },
+    { enableOnFormTags: true },
+  );
 
   const githubIcon = (
     <Image
@@ -78,18 +96,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarContent className="flex h-full flex-col bg-white px-1 md:bg-slate-50 dark:bg-neutral-900 md:dark:bg-neutral-900">
-        <div>
-          <NavMain items={data.navMain} />
-          <NavProjects projects={data.projects} />
-          <NavSocial social={data.social} />
-        </div>
-        <div className="mt-auto flex w-full justify-center pb-6">
-          <ModeToggle />
-        </div>
-      </SidebarContent>
-      <SidebarRail />
-    </Sidebar>
+    <TooltipProvider>
+      <Sidebar collapsible="icon" {...props}>
+        <SidebarContent className="flex h-full flex-col bg-white px-1 md:bg-slate-50 dark:bg-neutral-900 md:dark:bg-neutral-900">
+          <div>
+            <NavMain items={data.navMain} />
+            <NavProjects projects={data.projects} />
+            <NavSocial social={data.social} />
+          </div>
+          <div className="mt-auto flex w-full justify-center pb-6">
+            <ModeToggle />
+          </div>
+        </SidebarContent>
+        <SidebarRail />
+      </Sidebar>
+    </TooltipProvider>
   );
 }

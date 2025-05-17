@@ -2,6 +2,11 @@
 
 import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 import {
   SidebarGroup,
@@ -31,18 +36,45 @@ export function NavMain({
       </div>
       <SidebarGroupLabel>Me</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
-          <SidebarMenuItem key={item.title}>
-            <SidebarMenuButton asChild isActive={pathname === item.url}>
-              <a href={item.url}>
-                {item.icon && (
-                  <item.icon className="mr-3 text-slate-700 dark:text-neutral-200" />
+        {items.map((item) => {
+          let tooltipDescription = undefined;
+          let tooltipKey = undefined;
+          if (item.title === "Home") {
+            tooltipDescription = "Go to Home";
+            tooltipKey = "H";
+          }
+          if (item.title === "Writing") {
+            tooltipDescription = "Go to Writing";
+            tooltipKey = "W";
+          }
+          return (
+            <SidebarMenuItem key={item.title}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <SidebarMenuButton asChild isActive={pathname === item.url}>
+                    <a href={item.url}>
+                      {item.icon && (
+                        <item.icon className="mr-3 text-slate-700 dark:text-neutral-200" />
+                      )}
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </TooltipTrigger>
+                {tooltipDescription && tooltipKey && (
+                  <TooltipContent
+                    side="right"
+                    className="flex select-none items-center gap-2"
+                  >
+                    <span>{tooltipDescription}</span>
+                    <span className="rounded border border-slate-300 bg-slate-100 px-1.5 py-0.5 font-mono text-slate-700 text-xs dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
+                      {tooltipKey}
+                    </span>
+                  </TooltipContent>
                 )}
-                <span>{item.title}</span>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        ))}
+              </Tooltip>
+            </SidebarMenuItem>
+          );
+        })}
       </SidebarMenu>
     </SidebarGroup>
   );
