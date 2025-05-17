@@ -30,7 +30,7 @@ export function WritingListItem({
         className={`space-y-1 rounded-xl px-4 py-4 transition-colors md:px-6 ${
           isActive
             ? "bg-black dark:bg-neutral-800"
-            : "hover:bg-slate-200 dark:hover:bg-slate-800"
+            : "hover:bg-slate-200 dark:hover:bg-neutral-800"
         }`}
       >
         <h2
@@ -45,7 +45,7 @@ export function WritingListItem({
         <p
           className={`text-sm ${
             isActive
-              ? "text-slate-300 dark:text-slate-400"
+              ? "text-slate-300 dark:text-neutral-400"
               : "font-light text-slate-400 dark:text-neutral-500"
           }`}
         >
@@ -56,7 +56,7 @@ export function WritingListItem({
             className={`line-clamp-2 text-sm ${
               isActive
                 ? "text-slate-400 dark:text-neutral-500"
-                : "text-slate-500 dark:text-slate-400"
+                : "text-slate-500 dark:text-neutral-400"
             }`}
           >
             {excerpt}
