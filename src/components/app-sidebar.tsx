@@ -52,26 +52,26 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     projects: [
       {
         title: "Ellaa",
-        url: "https://ellaa.app",
+        url: "https://go.ellaa.app/F2Lia0f",
         icon: <Image src={logoEllaa} alt="Ellaa" width={16} height={16} />,
       },
     ],
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/ThisIsJustUs",
+        url: "https://git.new/drE25Sm",
         icon: githubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://linkedin.com/in/justushebenstreit",
+        url: "https://dub.sh/7qHj6WG",
         icon: (
           <Image src={logoLinkedin} alt="LinkedIn" width={16} height={16} />
         ),
       },
       {
         name: "Twitter",
-        url: "https://x.com/ThisIsJustUs",
+        url: "https://dub.sh/bfh56Xf",
         icon: <Image src={logoTwitter} alt="X" width={16} height={16} />,
       },
     ],
