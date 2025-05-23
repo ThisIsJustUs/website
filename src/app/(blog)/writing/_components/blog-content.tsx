@@ -2,6 +2,8 @@
 
 import { PortableText } from "next-sanity";
 import { format } from "date-fns";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { Container } from "./container";
 import { Subheading } from "./text";
@@ -87,6 +89,29 @@ export function BlogContent({ post }: BlogContentProps) {
                       default:
                         return null;
                     }
+                  },
+                  code: ({ value }) => {
+                    return (
+                      <div className="my-6 overflow-hidden rounded-2xl">
+                        <SyntaxHighlighter
+                          language={value.language || "text"}
+                          style={oneDark}
+                          showLineNumbers
+                          customStyle={{
+                            margin: 0,
+                            padding: "1rem",
+                            fontSize: "0.875rem",
+                          }}
+                        >
+                          {value.code || ""}
+                        </SyntaxHighlighter>
+                        {value.filename && (
+                          <div className="rounded-b-2xl bg-neutral-800 px-4 py-2 text-xs font-mono text-neutral-300">
+                            {value.filename}
+                          </div>
+                        )}
+                      </div>
+                    );
                   },
                 },
                 list: {

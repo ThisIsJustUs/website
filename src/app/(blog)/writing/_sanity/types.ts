@@ -121,6 +121,8 @@ export type Post = {
     _type: "separator";
     _key: string;
   } | {
+    _key: string;
+  } & Code | {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -174,6 +176,8 @@ export type BlockContent = Array<{
   _type: "separator";
   _key: string;
 } | {
+  _key: string;
+} & Code | {
   asset?: {
     _ref: string;
     _type: "reference";
@@ -245,9 +249,17 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/app/(blog)/blog/_sanity/queries.ts
+// Source: ./src/app/(blog)/writing/_sanity/queries.ts
 // Variable: TOTAL_POSTS_QUERY
 // Query: count(*[  _type == "post"  && defined(slug.current)  && (isFeatured != true || defined($category))  && select(defined($category) => $category in categories[]->slug.current, true)])
 export type TOTAL_POSTS_QUERYResult = number;
@@ -324,6 +336,8 @@ export type POST_QUERYResult = {
   } | null;
   excerpt: string | null;
   body: Array<{
+    _key: string;
+  } & Code | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;

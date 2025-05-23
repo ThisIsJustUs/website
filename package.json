@@ -16,7 +16,7 @@
 		"preview": "next build && next start",
 		"start": "next start",
 		"typecheck": "tsc --noEmit",
-		"typegen": "sanity schema extract --path=\"src/app/(blog)/blog/_sanity/extract.json\" && sanity typegen generate"
+		"typegen": "sanity schema extract && sanity typegen generate"
 	},
 	"dependencies": {
 		"@radix-ui/react-avatar": "^1.1.9",
@@ -29,6 +29,7 @@
 		"@radix-ui/react-tabs": "^1.1.11",
 		"@radix-ui/react-tooltip": "^1.2.6",
 		"@sanity/client": "^6.24.1",
+		"@sanity/code-input": "^5.1.2",
 		"@sanity/icons": "^3.5.6",
 		"@sanity/image-url": "^1.1.0",
 		"@sanity/vision": "^3.68.3",
@@ -53,6 +54,7 @@
 		"react-dom": "^19.0.0",
 		"react-hotkeys-hook": "^5.1.0",
 		"react-resizable-panels": "^3.0.1",
+		"react-syntax-highlighter": "^15.6.1",
 		"sanity": "^3.68.3",
 		"server-only": "^0.0.1",
 		"superjson": "^2.2.1",
@@ -66,6 +68,7 @@
 		"@types/node": "^20.14.10",
 		"@types/react": "^19.0.0",
 		"@types/react-dom": "^19.0.0",
+		"@types/react-syntax-highlighter": "^15.5.13",
 		"drizzle-kit": "^0.30.5",
 		"postcss": "^8.5.3",
 		"tailwindcss": "^4.0.15",
