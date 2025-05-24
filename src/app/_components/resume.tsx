@@ -102,17 +102,6 @@ export function Resume() {
           <Role key={role.company} role={role} />
         ))}
       </ol>
-      <Button variant="secondary" className="group mt-6 w-full" asChild>
-        <a
-          href="https://assets.hebenstreit.io/website/hebenstreit_justus_cv.pdf"
-          download="hebenstreit_justus_cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download CV
-          <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-active:stroke-zinc-50 dark:group-hover:stroke-zinc-50" />
-        </a>
-      </Button>
     </div>
   );
 }
