@@ -59,7 +59,7 @@ export default async function Post({ params }: Props) {
         </div>
 
         {/* Blog Content - Flexible width, scrollable */}
-        <div className="h-full flex-1 overflow-y-auto bg-white dark:bg-neutral-950">
+        <div className="h-full flex-1 overflow-y-auto bg-white dark:bg-neutral-950 mb-8">
           <BlogContent post={post} />
         </div>
       </div>

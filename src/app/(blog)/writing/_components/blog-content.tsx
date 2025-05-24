@@ -24,7 +24,7 @@ export function BlogContent({ post }: BlogContentProps) {
   }
 
   return (
-    <Container>
+    <Container className="mb-12">
       <div className="text-gray-700 dark:text-neutral-200">
         <div className="max-w-2xl xl:mx-auto">
           <Subheading className="mt-20">
@@ -32,7 +32,7 @@ export function BlogContent({ post }: BlogContentProps) {
               ? format(new Date(post.publishedAt), "MMMM M, yyyy")
               : ""}
           </Subheading>
-          <h1 className="text-pretty font-medium text-3xl text-gray-950 dark:text-neutral-100 tracking-tighter">
+          <h1 className="text-pretty font-medium text-3xl text-gray-950 tracking-tighter dark:text-neutral-100">
             {post.title}
           </h1>
           {post.mainImage && (
@@ -49,22 +49,22 @@ export function BlogContent({ post }: BlogContentProps) {
               components={{
                 block: {
                   normal: ({ children }) => (
-                    <p className="my-5 text-base/8 first:mt-0 last:mb-0">
+                    <p className="my-5 font-light text-base text-primary leading-7 first:mt-0 last:mb-0">
                       {children}
                     </p>
                   ),
                   h2: ({ children }) => (
-                    <h2 className="mt-12 mb-10 font-medium text-2xl/8 text-gray-950 dark:text-neutral-100 tracking-tight first:mt-0 last:mb-0">
+                    <h2 className="mt-6 mb-4 font-medium text-2xl/8 text-gray-950 tracking-tight first:mt-0 last:mb-0 dark:text-neutral-100">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }) => (
-                    <h3 className="mt-12 mb-10 font-medium text-gray-950 dark:text-neutral-100 text-xl/8 tracking-tight first:mt-0 last:mb-0">
+                    <h3 className="mt-6 mb-4 font-medium text-gray-950 text-xl/8 tracking-tight first:mt-0 last:mb-0 dark:text-neutral-100">
                       {children}
                     </h3>
                   ),
                   blockquote: ({ children }) => (
-                    <blockquote className="my-5 border-l-2 border-l-gray-300 dark:border-l-gray-700 pl-6 text-base/8 text-gray-950 dark:text-neutral-100 first:mt-0 last:mb-0">
+                    <blockquote className="my-5 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0 dark:border-l-gray-700 dark:text-neutral-100">
                       {children}
                     </blockquote>
                   ),
@@ -82,7 +82,7 @@ export function BlogContent({ post }: BlogContentProps) {
                     switch (value.style) {
                       case "line":
                         return (
-                          <hr className="my-8 border-gray-200 dark:border-gray-700 border-t" />
+                          <hr className="my-8 border-gray-200 border-t dark:border-gray-700" />
                         );
                       case "space":
                         return <div className="my-8" />;
@@ -111,7 +111,7 @@ export function BlogContent({ post }: BlogContentProps) {
                             borderBottomRightRadius: "0.5rem",
                           }}
                         >
-                          {value.code || ""}
+                          {value.code ?? ""}
                         </SyntaxHighlighter>
                       </div>
                     );
@@ -119,12 +119,12 @@ export function BlogContent({ post }: BlogContentProps) {
                 },
                 list: {
                   bullet: ({ children }) => (
-                    <ul className="list-disc pl-4 text-base/8 marker:text-gray-400 dark:marker:text-gray-500">
+                    <ul className="list-disc pl-4 text-base leading-7 marker:text-gray-400 dark:marker:text-gray-500">
                       {children}
                     </ul>
                   ),
                   number: ({ children }) => (
-                    <ol className="list-decimal pl-4 text-base/8 marker:text-gray-400 dark:marker:text-gray-500">
+                    <ol className="list-decimal pl-4 text-base leading-7 marker:text-gray-400 dark:marker:text-gray-500">
                       {children}
                     </ol>
                   ),
@@ -160,7 +160,7 @@ export function BlogContent({ post }: BlogContentProps) {
                     return (
                       <a
                         href={value.href}
-                        className="text-blue-500 dark:text-blue-400 decoration-gray-400 data-[hover]:decoration-gray-600"
+                        className="text-blue-500 decoration-gray-400 data-[hover]:decoration-gray-600 dark:text-blue-400"
                       >
                         {children}
                       </a>
