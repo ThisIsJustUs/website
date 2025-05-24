@@ -5,11 +5,9 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { AppSidebar } from "@/components/app-sidebar";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Justus Hebenstreit",
@@ -38,7 +36,7 @@ export default function RootLayout({
             <SidebarInset>
               <div className="flex flex-1 flex-col gap-4 pt-0">
                 {children}
-                {/* <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" /> */}
+                <Analytics />
               </div>
             </SidebarInset>
           </SidebarProvider>
